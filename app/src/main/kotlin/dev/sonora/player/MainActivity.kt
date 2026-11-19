@@ -1,0 +1,23 @@
+package dev.sonora.player
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
+import dev.sonora.player.ui.theme.SONORATheme
+import dev.sonora.player.ui.main.NowPlayingScreen
+
+class MainActivity : ComponentActivity() {
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+
+    enableEdgeToEdge()
+    setContent {
+      SONORATheme { Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) { NowPlayingScreen()} }
+    }
+  }
+}
