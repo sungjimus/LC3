@@ -36,6 +36,7 @@ fun NowPlayingScreen(){
     var isPlaying by remember {mutableStateOf(true)}
     var progress by remember {mutableStateOf(0f)}
     var isDrag by remember {mutableStateOf(false)}
+    var songCurrentIndex by remember {mutableStateOf()}
 
     LaunchedEffect(isPlaying,isDrag){
 
@@ -86,11 +87,11 @@ fun NowPlayingScreen(){
             )
 
 
-            PlayButton(
+            PlayBackButton(
                 isPlaying=isPlaying,
-                onClick= {
-                    isPlaying= !isPlaying
-                }   
+                onClick={
+                    isPlaying=!isPlaying
+                }
             )
         }
 
@@ -149,4 +150,20 @@ fun ProgressBar(value:Float,
             }
         )   
 
+}
+
+@Composable
+fun PlayBackButton(isPlaying:Boolean,onClick: ()->Unit){
+
+    row(
+        horizontalArrangement=Arrangement.spaceby(20.dp)
+        verticalAlignment=Alignment.CenterVertically
+    ){
+
+        PlayButton(
+            isPlaying=isPlaying,
+            onClick=onClick
+
+        )
+    }
 }
