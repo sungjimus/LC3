@@ -1,8 +1,10 @@
+
 package dev.sonora.player.ui.main
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -36,7 +38,7 @@ fun NowPlayingScreen(){
     var isPlaying by remember {mutableStateOf(true)}
     var progress by remember {mutableStateOf(0f)}
     var isDrag by remember {mutableStateOf(false)}
-    var songCurrentIndex by remember {mutableStateOf()}
+    var songCurrentIndex by remember {mutableStateOf(0)}
 
     LaunchedEffect(isPlaying,isDrag){
 
@@ -52,8 +54,6 @@ fun NowPlayingScreen(){
         }
         
     }
-
-
 
 
     Surface(
@@ -121,13 +121,13 @@ fun PlayButton(isPlaying:Boolean,onClick: ()->Unit){
         if(isPlaying){
             Icon(
                 imageVector= Icons.Default.Pause,
-                contentDescription= "Play"
+                contentDescription= "Pause"
             )
         }
         else{
             Icon(
                 imageVector= Icons.Default.PlayArrow,
-                contentDescription= "Pause"
+                contentDescription= "Play"
             )
         }
     }
@@ -155,8 +155,8 @@ fun ProgressBar(value:Float,
 @Composable
 fun PlayBackButton(isPlaying:Boolean,onClick: ()->Unit){
 
-    row(
-        horizontalArrangement=Arrangement.spaceby(20.dp)
+    Row(
+        horizontalArrangement=Arrangement.spacedBy(20.dp),
         verticalAlignment=Alignment.CenterVertically
     ){
 

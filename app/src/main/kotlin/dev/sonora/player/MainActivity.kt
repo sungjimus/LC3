@@ -9,7 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import dev.sonora.player.ui.theme.SONORATheme
-import dev.sonora.player.ui.main.NowPlayingScreen
+import dev.sonora.player.ui.main.MusicLibraryScreen
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
 
     enableEdgeToEdge()
     setContent {
-      SONORATheme { Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) { NowPlayingScreen()} }
+      SONORATheme { Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) { MusicLibraryScreen()} }
     }
   }
 }
